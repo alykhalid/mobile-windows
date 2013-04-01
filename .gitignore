@@ -1,0 +1,16 @@
+# Standard VS.NET 
+obj
+bin
+*.csproj.user
+* Thumbs.db
+*.cache
+
+# NuGet
+packages/
+
+# If you have a deploy folder
+deploy
+deploy/*
+ 
+# Exclude ALL DLLs?
+*.dll
