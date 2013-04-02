@@ -5,6 +5,9 @@ using System.Text;
 
 namespace trovebox.Model
 {
+    /// <summary>
+    /// As the name applies, this class is used to store the user crediential.
+    /// </summary>
     public class Credentials
     {
         public string oauth_consumer_key { get; set; }
@@ -13,6 +16,9 @@ namespace trovebox.Model
         public string oauth_token { get; set; }
         public string oauth_token_secret { get; set; }
 
+        /// <summary>
+        /// The parameterless constructor is needed inorder to properly deserialize the class, when retriving stored creditails from local storage.
+        /// </summary>
         public Credentials()
         {
 
