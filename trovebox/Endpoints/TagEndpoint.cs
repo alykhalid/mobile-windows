@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace trovebox.Endpoints
 {
+    /// <summary>
+    /// This class represents the methods which are available in the trovebox API which can be used to update, create, delete etc tags.
+    /// </summary>
+    /// For more information about the methods and the required parameters, please visit http://theopenphotoproject.org/documentation/
+    /// The initial version of this code was taken from https://github.com/slavo/openphoto-c-sharp but was modified for use in Windows Phone.
+    /// </remarks>
     public class TagEndpoint
     {
         public TagEndpoint(RestClient restClient)

@@ -7,8 +7,19 @@ using System.Threading.Tasks;
 
 namespace trovebox.Endpoints
 {
+    /// <summary>
+    /// This class represents the methods which are available in the trovebox API which can be used to update, create, delete etc photos.
+    /// </summary>
+    /// For more information about the methods and the required parameters, please visit http://theopenphotoproject.org/documentation/
+    /// The initial version of this code was taken from https://github.com/slavo/openphoto-c-sharp but was modified for use in Windows Phone.
+    /// </remarks>
     public class PhotoEndpoint
     {
+        public const string EndpointUrlPlural = "/photos";
+        public const string EndpointUrlSingular = "/photo";
+
+        private RestClient restClient;
+
         public PhotoEndpoint(RestClient restClient)
         {
             this.restClient = restClient;
@@ -94,10 +105,5 @@ namespace trovebox.Endpoints
             ResponseEnvelope<Photo> temp = await t.Task;
             return temp;
         }
-
-        public const string EndpointUrlPlural = "/photos";
-        public const string EndpointUrlSingular = "/photo";
-
-        private RestClient restClient;
     }
 }

@@ -90,9 +90,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controller\Credentials.cs" />
-    <Compile Include="Controller\QueryString.cs" />
-    <Compile Include="Controller\RangeObservableCollection.cs" />
+    <Compile Include="Model\Credentials.cs" />
+    <Compile Include="Utility\QueryString.cs" />
+    <Compile Include="Utility\RangeObservableCollection.cs" />
     <Compile Include="Endpoints\PhotoEndpoint.cs" />
     <Compile Include="Endpoints\TagEndpoint.cs" />
     <Compile Include="MainPage.xaml.cs">

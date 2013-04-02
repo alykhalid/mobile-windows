@@ -22,6 +22,9 @@ namespace trovebox.Delay
     /// Provides access to the Image.UriSource attached property which allows
     /// Images to be loaded by Windows Phone with less impact to the UI thread.
     /// </summary>
+    /// <remarks>
+    /// This class has been modified to save the loaded images to isolated storage and rehydrate the image from isolated storage on the next run.
+    /// </remarks>
     public static class LowProfileImageLoader
     {
         private const int WorkItemQuantum = 5;

@@ -5,6 +5,9 @@ using System.Text;
 
 namespace trovebox.Utility
 {
+    /// <summary>
+    /// A utility class to making parsing query string parameters easier, since the Base Class Library of Silver Light 3 does not support this natively.
+    /// </summary>
     public class QueryString
     {
         private readonly Dictionary<string, string> _parameters;
@@ -21,7 +24,7 @@ namespace trovebox.Utility
 
 
         public QueryString(Uri uri)
-            : this(uri.ToString()) { } //Call contructor which accepts a string before calling itself.
+            : this(uri.ToString()) { } //Call the contructor which accepts a string paramemter before calling itself.
 
         public QueryString(string uri)
             : this() //call default constructor without any parameter before calling itself.
@@ -41,7 +44,10 @@ namespace trovebox.Utility
 
         public string this[string index]
         {
-            get { return (_parameters.ContainsKey(index)) ? _parameters[index] : null; }
+            get
+            {
+                return (_parameters.ContainsKey(index)) ? _parameters[index] : null;
+            }
             set
             {
                 if (_parameters.ContainsKey(index))

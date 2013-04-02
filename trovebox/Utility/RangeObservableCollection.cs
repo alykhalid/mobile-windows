@@ -8,9 +8,12 @@ using System.Text;
 namespace trovebox.Utility
 {
     /// <summary>
-    /// http://peteohanlon.wordpress.com/2008/10/22/bulk-loading-in-observablecollection/
+    /// The purpose of this class is to add a "AddRange" method to a ObservableCollection class. Only a single notification is issued for all the new elements.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The type of collection</typeparam>
+    /// <remarks>
+    /// http://peteohanlon.wordpress.com/2008/10/22/bulk-loading-in-observablecollection/
+    /// </remarks>
     public class RangeObservableCollection<T> : ObservableCollection<T> 
     { 
         private bool _suppressNotification = false; 
