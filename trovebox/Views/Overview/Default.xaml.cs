@@ -38,12 +38,12 @@ namespace trovebox.views.Overview
 
         async void Default_Loaded(object sender, RoutedEventArgs e)
         {
+            if (alreadyHookedScrollEvents)
+                return;
+
             Model.ResponseEnvelope<List<trovebox.Model.Photo>> result = await (App.Current as App).client.Photos.GetList(page);
             Source.AddRange(result.Result);
             pics.ItemsSource = Source;
-
-            if (alreadyHookedScrollEvents)
-                return;
 
             alreadyHookedScrollEvents = true;
             sv = (ScrollViewer)FindElementRecursive(pics, typeof(ScrollViewer));
@@ -158,9 +158,9 @@ namespace trovebox.views.Overview
             base.OnNavigatedTo(e);
         }
 
-        private void pics_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        private void ShowImageTap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-
+            this.NavigationService.Navigate(new Uri("/Views/Picture/imageDisplay.xaml?id=" + ((Button)sender).CommandParameter, UriKind.Relative));
         }
     }
 }

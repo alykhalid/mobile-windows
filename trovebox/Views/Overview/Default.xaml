@@ -5,7 +5,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:delay="clr-namespace:trovebox.Delay"
-    xmlns:AutoScroll="clr-namespace:trovebox.AutoScroll"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -71,7 +70,7 @@
     <Grid x:Name="LayoutRoot">
         <controls:Panorama Title="trovebox">
             <controls:Panorama.Background>
-                <SolidColorBrush Color="#4B301E"/>
+                <SolidColorBrush Color="{StaticResource PhoneBackgroundColor}"/>
             </controls:Panorama.Background>
             <controls:Panorama.TitleTemplate>
                 <DataTemplate>
@@ -89,7 +88,7 @@
 
             <!--Panorama item one-->
             <controls:PanoramaItem Header="Pictures">
-                    <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="pics" Tap="pics_Tap">
+                    <ListBox HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="pics">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <Controls:WrapPanel Orientation="Horizontal"/>
@@ -97,9 +96,16 @@
                         </ListBox.ItemsPanel>
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Border Background="#976A4C" BorderThickness="1" BorderBrush="#4B301E">
-                                <Image Height="100" Width="100" Margin="1" Stretch="None" delay:LowProfileImageLoader.UriSource="{Binding Path100x100xUri}" />
-                            </Border>
+                                <Button Tap="ShowImageTap" CommandParameter="{Binding Id}" BorderThickness="0" Padding="0" Margin="-12,-12,-12,-6">
+                                    <Button.Content>
+                                        <Border BorderThickness="1">
+                                            <Border.BorderBrush>
+                                                <SolidColorBrush Color="{StaticResource PhoneAccentColor}" />
+                                            </Border.BorderBrush>
+                                            <Image Height="100" Width="100" Margin="1" Stretch="None" delay:LowProfileImageLoader.UriSource="{Binding Path100x100xUri}"/>
+                                        </Border>
+                                    </Button.Content>
+                                </Button>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
@@ -117,7 +123,7 @@
         </controls:Panorama>
 
         <Controls:PerformanceProgressBar
-            VerticalAlignment="Center"
+            VerticalAlignment="Bottom"
             x:Name="_performanceProgressBar"/>
     </Grid>
 

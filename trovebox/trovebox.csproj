@@ -104,10 +104,10 @@
     <Compile Include="Model\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controller\troveboxClient.cs" />
+    <Compile Include="Controller\LowProfileImageLoader.cs" />
     <Compile Include="Views\About\Default.xaml.cs">
       <DependentUpon>Default.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controller\LowProfileImageLoader.cs" />
     <Compile Include="Views\Login\Default.xaml.cs">
       <DependentUpon>Default.xaml</DependentUpon>
     </Compile>

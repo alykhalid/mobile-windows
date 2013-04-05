@@ -29,6 +29,7 @@ namespace trovebox.Endpoints
         {
             var t = new TaskCompletionSource<ResponseEnvelope<Photo>>();
             var request = new RestRequest(PhotoEndpoint.EndpointUrlSingular + "/" + id + "/view.json", Method.GET);
+            request.Parameters.Add(new Parameter() { Name = "returnSizes", Value = "480x800", Type = ParameterType.GetOrPost });
             this.restClient.ExecuteAsync<ResponseEnvelope<Photo>>(request, r => { t.TrySetResult(r.Data); });
             ResponseEnvelope<Photo> temp = await t.Task;
             return temp;
