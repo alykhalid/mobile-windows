@@ -86,7 +86,11 @@ namespace trovebox.Model
         public string PathOriginal { get; set; }
         public string PathBase { get; set; }
         public string Path480x800 { get; set; }
-        public string Path100x100xCR { get; set; }
-        public Uri Path100x100xUri { get { return new Uri(Path100x100xCR); } private set { Path100x100xUri = null; } }
+        
+        public string Path96x72xCR { get; set; }
+        public Uri Path96x72xUri { get { return new Uri(Path96x72xCR); } private set { Path96x72xUri = null; } }
+        
+        public string Path468x285xCR { get; set; }
+        public Uri Path468x285xUri { get { return new Uri(Path468x285xCR); } private set { Path468x285xUri = null; } }
     }
 }

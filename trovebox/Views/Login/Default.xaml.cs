@@ -64,7 +64,7 @@ namespace trovebox.Views.Login
                             }
                         }
                     }
-                    this.NavigationService.Navigate(new Uri("/Overview", UriKind.Relative));
+                    this.NavigationService.Navigate(new Uri("/Gallery", UriKind.Relative));
                 }
             }
         }

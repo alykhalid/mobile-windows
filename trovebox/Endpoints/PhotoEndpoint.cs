@@ -39,7 +39,7 @@ namespace trovebox.Endpoints
         {
             var t = new TaskCompletionSource<ResponseEnvelope<Photo>>();
             var request = new RestRequest(PhotoEndpoint.EndpointUrlSingular + "/" + id + "/view.json", Method.GET);
-            request.Parameters.Add(new Parameter() { Name = "returnSizes", Value = "100x100xCR", Type = ParameterType.GetOrPost });
+            request.Parameters.Add(new Parameter() { Name = "returnSizes", Value = "96x72xCR", Type = ParameterType.GetOrPost });
             this.restClient.ExecuteAsync<ResponseEnvelope<Photo>>(request, r => { t.TrySetResult(r.Data); });
             ResponseEnvelope<Photo> temp = await t.Task;
             return temp;
@@ -49,7 +49,7 @@ namespace trovebox.Endpoints
         {
             var t = new TaskCompletionSource<ResponseEnvelope<List<Photo>>>();
             var request = new RestRequest(PhotoEndpoint.EndpointUrlPlural + "/list.json", Method.GET);
-            request.Parameters.Add(new Parameter() { Name = "returnSizes", Value = "100x100xCR", Type = ParameterType.GetOrPost });
+            request.Parameters.Add(new Parameter() { Name = "returnSizes", Value = "96x72xCR,468x285xCR", Type = ParameterType.GetOrPost });
             request.Parameters.Add(new Parameter() { Name = "pageSize", Value = "15", Type = ParameterType.GetOrPost });
             request.Parameters.Add(new Parameter() { Name = "page", Value = page.ToString(), Type = ParameterType.GetOrPost });
             this.restClient.ExecuteAsync<ResponseEnvelope<List<Photo>>>(request, r => { t.TrySetResult(r.Data); });

@@ -45,6 +45,9 @@ namespace trovebox
                 // Display the current frame rate counters.
                 Application.Current.Host.Settings.EnableFrameRateCounter = true;
 
+                // Display the metro grid helper.
+                MetroGridHelper.IsVisible = true;
+
                 // Show the areas of the app that are being redrawn in each frame.
                 //Application.Current.Host.Settings.EnableRedrawRegions = true;
 
@@ -67,12 +70,14 @@ namespace trovebox
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            IsolatedStorageExplorer.Explorer.Start("localhost");
         }
 
         // Code to execute when the application is activated (brought to foreground)
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
+            IsolatedStorageExplorer.Explorer.RestoreFromTombstone();
         }
 
         // Code to execute when the application is deactivated (sent to background)

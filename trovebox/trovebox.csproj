@@ -51,6 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IsolatedStorageExplorer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
@@ -85,11 +86,15 @@
     <Reference Include="System.Xml" />
     <Reference Include="mscorlib.extensions" />
     <Reference Include="System.Xml.Serialization" />
+    <Reference Include="wp7Library">
+      <HintPath>..\..\..\..\Downloads\PhoneApp2\myLibrary\Bin\Release\wp7Library.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MetroGridHelper.cs" />
     <Compile Include="Model\Credentials.cs" />
     <Compile Include="Utility\QueryString.cs" />
     <Compile Include="Utility\RangeObservableCollection.cs" />
@@ -106,6 +111,9 @@
     <Compile Include="Controller\troveboxClient.cs" />
     <Compile Include="Controller\LowProfileImageLoader.cs" />
     <Compile Include="Views\About\Default.xaml.cs">
+      <DependentUpon>Default.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Gallery\Default.xaml.cs">
       <DependentUpon>Default.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Login\Default.xaml.cs">
@@ -131,6 +139,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\About\Default.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Gallery\Default.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,6 +179,8 @@
     <Content Include="images\logo.png" />
     <Content Include="images\panorama.png" />
     <Content Include="README_FIRST.txt" />
+    <Content Include="sample\image1.jpg" />
+    <Content Include="sample\image2.jpg" />
     <Content Include="SplashScreenImage.jpg" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />

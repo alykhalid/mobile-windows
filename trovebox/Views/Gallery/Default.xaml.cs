@@ -10,17 +10,14 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
-using System.Windows.Controls.Primitives;
-using System.Collections;
-using System.Collections.ObjectModel;
-using trovebox.Utility;
 using Microsoft.Phone.Shell;
+using trovebox.Utility;
+using System.Collections;
 
-namespace trovebox.views.Overview
+namespace trovebox.Views.Gallery
 {
     public partial class Default : PhoneApplicationPage
     {
-
         private ScrollViewer sv = null;
         private bool alreadyHookedScrollEvents = false;
         private int page = 1;
@@ -43,10 +40,10 @@ namespace trovebox.views.Overview
 
             Model.ResponseEnvelope<List<trovebox.Model.Photo>> result = await (App.Current as App).client.Photos.GetList(page);
             Source.AddRange(result.Result);
-            PicListBox.ItemsSource = Source;
+            pics.ItemsSource = Source;
 
             alreadyHookedScrollEvents = true;
-            sv = (ScrollViewer)FindElementRecursive(PicListBox, typeof(ScrollViewer));
+            sv = (ScrollViewer)FindElementRecursive(pics, typeof(ScrollViewer));
             if (sv != null)
             {
                 // Visual States are always on the first child of the control template 
@@ -65,7 +62,7 @@ namespace trovebox.views.Overview
                         vgroup.CurrentStateChanging += new EventHandler<VisualStateChangedEventArgs>(vgroup_CurrentStateChanging);
                     }
                 }
-            }           
+            }
 
         }
 
@@ -99,17 +96,17 @@ namespace trovebox.views.Overview
                 }
 
                 _progressIndicator.IsIndeterminate = true;
-                
+
                 ScrollingCompleted = BottomCompression = false;
-                
+
                 page += 1;
                 Model.ResponseEnvelope<List<trovebox.Model.Photo>> result = await (App.Current as App).client.Photos.GetList(page);
                 Source.AddRange(result.Result);
-                PicListBox.ItemsSource = Source;
+                pics.ItemsSource = Source;
 
                 if (sv != null)
                 {
-                    //sv.Dispatcher.BeginInvoke(() => { sv.ScrollToVerticalOffset(sv.ScrollableHeight); });
+                    sv.Dispatcher.BeginInvoke(() => { sv.ScrollToVerticalOffset(sv.ScrollableHeight); });
                 }
 
                 _progressIndicator.IsIndeterminate = false;

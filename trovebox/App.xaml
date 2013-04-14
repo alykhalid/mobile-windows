@@ -10,6 +10,7 @@
     <Application.Resources>
         <nav:UriMapper x:Key="UriMapper">
             <nav:UriMapper.UriMappings>
+                <nav:UriMapping Uri="/Gallery" MappedUri="/Views/Gallery/Default.xaml"/>
                 <nav:UriMapping Uri="/Overview" MappedUri="/Views/Overview/Default.xaml"/>
                 <nav:UriMapping Uri="/About" MappedUri="/Views/About/Default.xaml"/>
             </nav:UriMapper.UriMappings>
